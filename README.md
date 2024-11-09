@@ -17,3 +17,10 @@
 - \$ go mod init hello (go mod init command)
 - \$ touch main.go
 - \$ go run .
+
+## Import a Module
+
+- To import 3rd party module
+  - \$ go mod tidy (When imported rsc.io/quote)
+  - go mod tidy, it located and downloaded the rsc.io/quote module that contains the package you imported. By default, it downloaded the latest version
+- \$ go run import-fun.go
