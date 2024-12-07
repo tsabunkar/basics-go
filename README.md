@@ -18,9 +18,27 @@
 - \$ touch main.go
 - \$ go run .
 
-## Import a Module
+## Import a 3rd party Module
 
+- All the 3rd party modules/libr are here- https://pkg.go.dev/
 - To import 3rd party module
   - \$ go mod tidy (When imported rsc.io/quote)
   - go mod tidy, it located and downloaded the rsc.io/quote module that contains the package you imported. By default, it downloaded the latest version
+  - Check there is go.sum file created automatically and also in go.mod file where you have direct & indirect deps/requires
 - \$ go run import-fun.go
+
+## Implement a module that others can use
+
+- \$ mkdir greetings
+- \$ cd greetings
+- \$ go mod init example.com/greetings
+  - Create the Package in greetings.go fie
+  - Write your custom function in greetings.go file ==> Hello()
+- \$ cd .. (root folder)
+- \$ mkdir hello
+- \$ cd hello
+- \$ go mod init example.com/hello (inside create go.mod file)
+- \$ touch hello.go
+- \$ go mod edit -replace example.com/greetings=../greetings
+- \$ go mod tidy (to synchronize the deps)
+- \$ go run .
