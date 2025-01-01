@@ -42,3 +42,11 @@
 - \$ go mod edit -replace example.com/greetings=../greetings
 - \$ go mod tidy (to synchronize the deps)
 - \$ go run .
+
+## Error handling
+
+- \$ cd error-handling
+- \$ go mod init tsabunkar.com/greetings
+- \$ go mod edit -replace tsabunkar.com/greetings=../error-handling
+- \$ go mod tidy (to synchronize the deps)
+- \$ go run .
