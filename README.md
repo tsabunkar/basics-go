@@ -45,8 +45,9 @@
 
 ## Error handling
 
-- \$ cd error-handling
-- \$ go mod init tsabunkar.com/greetings
-- \$ go mod edit -replace tsabunkar.com/greetings=../error-handling
+- Create a folder/module greetings2 which has go.mod and greetings.go
+- \$ cd error-handling (for go module for error-handling, create file hello.go and go.mod)
+- \$ go mod init tsabunkar.com/error-handling
+- \$ go mod edit -replace tsabunkar.com/greetings2 => ../greetings2
 - \$ go mod tidy (to synchronize the deps)
 - \$ go run .

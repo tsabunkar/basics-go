@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"tsabunkar.com/greetings"
+	greetings "tsabunkar.com/greetings2"
 )
 
 func main() {
@@ -15,7 +15,8 @@ func main() {
     log.SetFlags(0)
 
     // Request a greeting message.
-    message, err := greetings.Hello("")
+    // message, err := greetings.Hello("") // Error path
+	message, err := greetings.Hello("Tejas") // Success path
     // If an error was returned, print it to the console and
     // exit the program.
     if err != nil {
