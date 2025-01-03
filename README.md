@@ -51,3 +51,26 @@
 - \$ go mod edit -replace tsabunkar.com/greetings2 => ../greetings2
 - \$ go mod tidy (to synchronize the deps)
 - \$ go run .
+
+# Variable Casing Style
+
+- Follow camelCase for private variables: Example: myVar, greetingMessage.
+- Use PascalCase for exported variables: Example: MyPublicVar, ExportedFunction.
+- Constants should use camelCase or PascalCase (depending on scope):
+  - Private constant: defaultTimeout.
+  - Public constant: MaxConnections.
+- Avoid underscores: Go prefers camelCase for readability and consistency.
+- Official Doc: https://go.dev/doc/effective_go#mixed-caps
+
+# Go Slice Type
+
+- Slice is a datatype
+- A slice is like an array, except that its size changes dynamically as you add and remove items
+- Defining an Array
+  - `b := [2]string{"Penn", "Teller"}`
+  - `b := [...]string{"Penn", "Teller"}`
+- Defining an Slice
+  - type specification for a slice is []T, where T is the type of the elements of the slice. Unlike an array type, a slice type has no specified length.
+  - letters := []string{"a", "b", "c", "d"}
+  - A slice can be created with the built-in function called make
+    - func make([]T, len, cap) []T (T stands for the element type of the slice to be created)
