@@ -9,7 +9,10 @@ func main() {
 	fmt.Println(s) // [0 0 0 0 0]
 	
 	fmt.Println("capacity argument is omitted")
-	somitted := make([]byte, 5)
-	fmt.Println(somitted)
+	sOmitted := make([]byte, 5) // capacity default value is specified to length
+	fmt.Println(sOmitted) // [0 0 0 0 0]
+
+	fmt.Println(len(sOmitted)) // 5
+	fmt.Println(cap(sOmitted)) // 5
 
 }
