@@ -30,4 +30,22 @@ func main() {
 	x := [3]string{"Лайка", "Белка", "Стрелка"}
 	s1 := x[:] // a slice referencing the storage of x
 	fmt.Println(s1)
+
+	// Slicing does not copy the slice’s data. It creates a new slice value that points to the original array.
+	// This makes slice operations as efficient as manipulating array indices.
+
+	d := []byte{'r', 'o', 'a', 'd'}
+	e := d[2:]
+	fmt.Printf("%s \n", d) // Printing String for bytes value [road]
+	fmt.Printf("%s \n",e)// [ad]
+	e[1] = 'm'
+	fmt.Printf("%s \n", d) // [roam] <-- Impacting the orginial array value
+	fmt.Printf("%s \n", e) // [am]
+
+	// A slice cannot be grown beyond its capacity. Attempting to do so will cause a runtime panic, 
+	// just as when indexing outside the bounds of a slice or array. Similarly, 
+	// slices cannot be re-sliced below zero to access earlier elements in the array.
+
+	s2 := e[3:]
+	fmt.Printf("%s \n", s2) // panic: runtime error: slice bounds out of range [3:2]
 }
