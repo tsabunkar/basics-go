@@ -74,3 +74,5 @@
   - letters := []string{"a", "b", "c", "d"}
   - A slice can be created with the built-in function called make
     - func make([]T, len, cap) []T (T stands for the element type of the slice to be created)
+
+# Return a random greeting
