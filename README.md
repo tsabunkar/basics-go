@@ -76,3 +76,11 @@
     - func make([]T, len, cap) []T (T stands for the element type of the slice to be created)
 
 # Return a random greeting
+
+- Create greetings/greetings.go
+- Create hello3/hello.go
+- basics-go/greetings3 \$ go mod init xxx.com/greetings3
+- basics-go/hello3 \$ go mod init example.com/hello3
+- basics-go/hello3 \$ go mod edit -replace xxx.com/greetings3 => ../greetings3
+- basics-go/hello3 \$ go mod tidy
+- basics-go/hello3 \$ go run . (run multiple times)
