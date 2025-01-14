@@ -87,4 +87,11 @@
 
 # Unit Testing
 
--
+- Go's built-in support for unit testing
+- `_test.go` tells the go test command that this file contains test functions
+  - Added test file under /greetings3 folder
+  - NOTE: [no test files] Error ==> Couldnt find the test file
+    - fileName_test.go should be followed on the file which you are writting the test case
+    - for ex: greetings3/greetings.go we want to write test case then create file called greetings_test.go
+- To run Testing use command: `go test`
+- basics-go/greetings3 \$ go test -v (Verbose)
