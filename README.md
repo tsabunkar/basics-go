@@ -95,3 +95,12 @@
     - for ex: greetings3/greetings.go we want to write test case then create file called greetings_test.go
 - To run Testing use command: `go test`
 - basics-go/greetings3 \$ go test -v (Verbose)
+
+# Go Commands
+
+- go build command to compile the code into an executable
+  - \$ go build
+  - To run the executable in mac or linux: ./executable
+  - basics-go/hello \$ go run .
+  - It would generate executable as hello
+  - basics-go/hello \$ ./hello
