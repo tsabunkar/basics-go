@@ -104,3 +104,6 @@
   - basics-go/hello \$ go run .
   - It would generate executable as hello
   - basics-go/hello \$ ./hello
+- Go List Commands
+  - basics-go/hello \$ go list -f '{{.Target}}'
+  - meaning that binaries are installed at this location /Users/tsabunkar/go/bin/hello
