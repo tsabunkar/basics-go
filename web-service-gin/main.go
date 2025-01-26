@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 // album represents data about a record album.
 type album struct {
@@ -20,4 +25,13 @@ var albums = []album{
 func main() {
 fmt.Println(albums) // [{1 Blue Train John Coltrane 56.99} {2 Jeru Gerry Mulligan 17.99} {3 Sarah Vaughan and Clifford Brown Sarah Vaughan 39.99}]
 fmt.Println(albums[1]) //{2 Jeru Gerry Mulligan 17.99} 
+
+router := gin.Default()
+router.GET("/albums", getAlbums)
+router.Run("localhost:8080")
+}
+
+// getAlbums responds with the list of all albums as JSON.
+func getAlbums(c *gin.Context) {
+    c.IndentedJSON(http.StatusOK, albums) // IndentedJSON- to serialize the struct into JSON
 }

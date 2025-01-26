@@ -116,3 +116,8 @@
 - \$ cd web-service-gin
 - \$ go mod init example/web-service-gin (Creating modules to manage deps`)
 - \$ touch main.go
+- Added the following code with gin deps
+- To downloaded this gin 3rd party deps-
+  - basics-go/web-service-gin \$ go get .
+- basics-go/web-service-gin\$ go run .
+- open new terminal: curl http://localhost:8080/albums
