@@ -28,10 +28,15 @@ fmt.Println(albums[1]) //{2 Jeru Gerry Mulligan 17.99}
 
 router := gin.Default()
 router.GET("/albums", getAlbums)
+router.GET("/album", getAlbum)
 router.Run("localhost:8080")
 }
 
 // getAlbums responds with the list of all albums as JSON.
 func getAlbums(c *gin.Context) {
     c.IndentedJSON(http.StatusOK, albums) // IndentedJSON- to serialize the struct into JSON
+}
+
+func getAlbum(c *gin.Context) {
+    c.IndentedJSON(http.StatusOK, albums[0]) // IndentedJSON- to serialize the struct into JSON
 }
