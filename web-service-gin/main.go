@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -30,6 +31,7 @@ router := gin.Default()
 router.GET("/albums", getAlbums)
 router.GET("/albums/:id", getAlbumByID)
 router.POST("/albums", postAlbums)
+router.DELETE("/albums/:id", deleteAlbumByID)
 router.Run("localhost:8080")
 }
 
@@ -69,4 +71,29 @@ func postAlbums(c *gin.Context) {
     // Add the new album to the slice.
     albums = append(albums, newAlbum)
     c.IndentedJSON(http.StatusCreated, newAlbum)
+}
+
+func deleteAlbumByID(c *gin.Context) {
+	id := c.Param("id")
+
+	fmt.Println("id to be deleted", id)
+	i, err := strconv.Atoi(id) // converting string to int
+	fmt.Println("Object to be deleted", albums[i])
+	if err != nil {
+        // ... handle error
+		fmt.Println("Error occured while converting the :id provided as path param")
+        panic(err)
+    }
+	for _, a := range albums {
+        if a.ID == id {
+			deletedAlbums := remove(albums, i)
+            c.IndentedJSON(http.StatusOK, deletedAlbums)
+            return
+        }
+    }
+
+}
+
+func remove(slice []album, s int) []album {
+    return append(slice[:s], slice[s+1:]...)
 }

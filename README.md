@@ -130,3 +130,6 @@
     --request "POST" \
     --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
   - To verifiy: \$ curl http://localhost:8080/albums
+- DELETE:
+  - \$ curl http://localhost:8080/albums/1 \
+    --request "DELETE"
