@@ -29,6 +29,7 @@ fmt.Println(albums[1]) //{2 Jeru Gerry Mulligan 17.99}
 router := gin.Default()
 router.GET("/albums", getAlbums)
 router.GET("/albums/:id", getAlbumByID)
+router.POST("/albums", postAlbums)
 router.Run("localhost:8080")
 }
 
@@ -52,4 +53,20 @@ func getAlbumByID(c *gin.Context) {
         }
     }
     c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+
+// postAlbums adds an album from JSON received in the request body.
+func postAlbums(c *gin.Context) {
+    var newAlbum album
+
+    // Call BindJSON to bind the received JSON to
+    // newAlbum.
+    if err := c.BindJSON(&newAlbum); err != nil {
+        return
+    }
+
+    // Add the new album to the slice.
+    albums = append(albums, newAlbum)
+    c.IndentedJSON(http.StatusCreated, newAlbum)
 }

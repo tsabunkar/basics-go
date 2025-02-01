@@ -121,3 +121,12 @@
   - basics-go/web-service-gin \$ go get .
 - basics-go/web-service-gin\$ go run .
 - open new terminal: curl http://localhost:8080/albums
+- GET ALL: \$ curl http://localhost:8080/albums
+- GET ONE: \$ curl http://localhost:8080/albums/1
+- POST:
+  - \$ curl http://localhost:8080/albums \
+    --include \
+    --header "Content-Type: application/json" \
+    --request "POST" \
+    --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
+  - To verifiy: \$ curl http://localhost:8080/albums
