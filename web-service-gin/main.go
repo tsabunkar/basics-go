@@ -32,6 +32,7 @@ router.GET("/albums", getAlbums)
 router.GET("/albums/:id", getAlbumByID)
 router.POST("/albums", postAlbums)
 router.DELETE("/albums/:id", deleteAlbumByID)
+router.PUT("/albums/:id", putAlbumsByID)
 router.Run("localhost:8080")
 }
 
@@ -96,4 +97,8 @@ func deleteAlbumByID(c *gin.Context) {
 
 func remove(slice []album, s int) []album {
     return append(slice[:s], slice[s+1:]...)
+}
+
+func putAlbumsByID(c *gin.Context)  {
+    
 }
