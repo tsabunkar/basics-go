@@ -133,3 +133,9 @@
 - DELETE:
   - \$ curl http://localhost:8080/albums/1 \
     --request "DELETE"
+- PUT:
+  - \$ curl http://localhost:8080/albums/1 \
+    --include \
+    --header "Content-Type: application/json" \
+    --request "PUT" \
+    --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'

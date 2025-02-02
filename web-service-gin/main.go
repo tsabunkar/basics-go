@@ -99,6 +99,32 @@ func remove(slice []album, s int) []album {
     return append(slice[:s], slice[s+1:]...)
 }
 
+// PUT is used to replace the entire resource
 func putAlbumsByID(c *gin.Context)  {
-    
+    id := c.Param("id")
+    var putAlbum album
+
+    // Call BindJSON to bind the received JSON to
+    // newAlbum.
+    if err := c.BindJSON(&putAlbum); err != nil {
+        return
+    }
+    fmt.Println("Id values to be replaced", id)
+    fmt.Println("Put Request Body", putAlbum)
+ 
+    i, err := strconv.Atoi(id) // converting string to int  
+    if err != nil {
+        // ... handle error
+		fmt.Println("Error occured while converting the :id provided as path param")
+        panic(err)
+    }
+
+    albums[i] = putAlbum // replacing the complete element inside the albumbs array
+    c.IndentedJSON(http.StatusCreated, albums)
+  
+}
+
+// PATCH is used to replace only the part of the resource
+func patchAlbumbsByID(c *gin.Context){
+
 }
