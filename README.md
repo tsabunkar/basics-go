@@ -139,3 +139,38 @@
     --header "Content-Type: application/json" \
     --request "PUT" \
     --data '{"id": "4","title": "The Modern Sound of Betty Carter","artist": "Betty Carter","price": 49.99}'
+
+# How to install Go from the traditional installtion, which is present in /usr/local/go/bin/go
+
+- \$ which go
+- \$ sudo rm -rf /usr/local/go
+- \$ sudo rm /etc/paths.d/go
+- \$ which go (or) realpath
+- \$ sudo rm -rf ./go (if present under: /tsabunkar/go)
+
+# Installing go using homebrew
+
+- \$ brew install go
+- \$ go version (go version go1.23.5 darwin/arm64, Since its for apple silicon)
+
+# Hot Reloading in Golang
+
+- There is no hotloading in Golang, it has live reloading
+  - Live reloading is when a background process observes changes in your source and recompiles your entire application automatically. Hot reloading is when you can recompile only part of your application and inject it into your already running process
+- https://github.com/air-verse/air
+- \$ cd /Users/tsabunkar/Developer/Workspace/vsc/basics-go/hello
+- \$ go mod init main (If not initialized the module)
+- \$ go install github.com/air-verse/air@latest
+- \$ air -h
+- If zsh command not found air
+  - Your Go Global Modules are presents at- /Users/tsabunkar/go/bin
+  - \$ cd \Users\tsabunkar\go\bin
+  - \$ ls (you will find air here)
+  - \$ code ~/.zshrc
+  - # zsh to remeber all the global modules/packages of go-lang
+    export PATH="$PATH:/Users/tsabunkar/go/bin"
+  - Save above file, Terminate all the termnials and re=open
+  - \$ air -v (anywhere)
+- \$ cd /Users/tsabunkar/Developer/Workspace/vsc/basics-go/hello
+- \$ go init (This will create .air.toml file which is config file for air-configuration for this directory/module)
+- \$ air (Instead of running go run .)
