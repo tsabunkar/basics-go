@@ -47,15 +47,25 @@ func getAlbums(c *gin.Context) {
 func getAlbumByID(c *gin.Context) {
     id := c.Param("id")
 
-    // Loop over the list of albums, looking for
-    // an album whose ID value matches the parameter.
-    for _, a := range albums {
-        if a.ID == id {
-            c.IndentedJSON(http.StatusOK, a)
-            return
-        }
+ 
+    foundAlbum := isIDFoundInAlbums(id, c)
+    if foundAlbum {
+    	return
     }
     c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+
+/** Loop over the list of albums, looking for
+an album whose ID value matches the parameter. **/
+func isIDFoundInAlbums(id string, c *gin.Context) bool {
+	for _, a := range albums {
+		if a.ID == id {
+			c.IndentedJSON(http.StatusOK, a)
+			return true
+		}
+	}
+	return false
 }
 
 
