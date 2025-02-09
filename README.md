@@ -174,3 +174,5 @@
 - \$ cd /Users/tsabunkar/Developer/Workspace/vsc/basics-go/hello
 - \$ go init (This will create .air.toml file which is config file for air-configuration for this directory/module)
 - \$ air (Instead of running go run .)
+
+# golang connect to postgres database
