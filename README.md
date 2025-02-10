@@ -209,3 +209,11 @@
   Maintance db : postgres
   Username : postgres [default user provide by postgreSQL]
   password : (you know)
+
+## Actual logic
+
+- basics-go/golang-postgres
+- Create main.go file
+- \$ go mod init golang-postgres (go mod init command)
+- \$ go get github.com/lib/pq
+- \$ go mod tidy
