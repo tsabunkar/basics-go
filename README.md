@@ -176,3 +176,36 @@
 - \$ air (Instead of running go run .)
 
 # golang connect to postgres database
+
+## Installing PostgreSQL using docker
+
+- \$ docker pull postgres:15.10
+- \$ docker run --name postgres-server -e POSTGRES_PASSWORD=root -d postgres:15.10
+- \$ docker container ls
+- \$ docker exec -it postgres-server bash
+- \$ psql --version
+- \$ psql -U postgres [bcoz- postgresSQL create default user called postgres]
+- \$ SELECT 1;
+
+## Installing PgAdmin
+
+- \$ docker pull dpage/pgadmin4:9.0.0
+- \$ docker run -d --name pgAdmin \
+   -v pgadmin_data:/var/lib/pgadmin \
+   -e 'PGADMIN_DEFAULT_EMAIL=tsabunkar@gmail.com' \
+   -e 'PGADMIN_DEFAULT_PASSWORD=root' \
+   --add-host=host.docker.internal:host-gateway \
+   -p 9002:80 \
+   dpage/pgadmin4:9.0.0
+- \$ - (To know what is the ip address and port number, Inspect the container)
+  docker inspect <container_id> [Check IP of PostgreSQL Container's not pgAdmin :)]
+- Browser > http://172.17.0.2:9002/ (or) http://localhost:9002/
+- User name: tsabunkar@gmail.com
+  password: root
+- server > register > Server
+- Name : postgre-test
+  Connection : 172.17.0.2 (This ip address you will know, by inspecting postgre-server container running)
+  Port : 5432
+  Maintance db : postgres
+  Username : postgres [default user provide by postgreSQL]
+  password : (you know)
