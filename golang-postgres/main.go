@@ -10,7 +10,7 @@ import (
 
 const (
 	HOST     = "172.17.0.2"
-	PORT     = 5432
+	PORT     = "5432"
 	USER     = "postgres"
 	PASSWORD = "root"
 	DBNAME   = "postgres"
@@ -18,7 +18,7 @@ const (
 
 func main() {
 	fmt.Println("Starting the db connection")
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		HOST, PORT, USER, PASSWORD, DBNAME)
 	fmt.Println("psqlInfo", psqlInfo)
 	db, err := sql.Open("postgres", psqlInfo)
