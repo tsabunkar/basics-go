@@ -219,3 +219,4 @@
 - \$ go mod init golang-postgres (go mod init command)
 - \$ go get github.com/lib/pq
 - \$ go mod tidy
+- \$ go run .
