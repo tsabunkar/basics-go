@@ -181,6 +181,8 @@
 
 - \$ docker pull postgres:15.10
 - \$ docker run --name postgres-server -e POSTGRES_PASSWORD=root -d postgres:15.10
+- Since Docker image network is not able to commuincate from My Client Mbp Machine [[sof](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach)]
+  - \$ docker run --name postgres-server -e POSTGRES_PASSWORD=root -d --add-host=host.docker.internal:host-gateway -p 5432:5432 postgres:15.10
 - \$ docker container ls
 - \$ docker exec -it postgres-server bash
 - \$ psql --version
